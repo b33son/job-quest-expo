@@ -54,7 +54,7 @@ LinksStack.navigationOptions = {
 
 const ReviewStack = createStackNavigator({
   Review: ReviewScreen,
-  Settings: SettingsScreen
+  Settings: ReviewScreen
 });
 
 ReviewStack.navigationOptions = {
@@ -71,8 +71,27 @@ ReviewStack.navigationOptions = {
   )
 };
 
+const DeckStack = createStackNavigator({
+  Deck: DeckScreen,
+  Settings: DeckScreen
+});
+
+DeckStack.navigationOptions = {
+  tabBarLabel: "Jobs Deck",
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === "ios"
+          ? `ios-options${focused ? "" : "-outline"}`
+          : "md-options"
+      }
+    />
+  )
+};
+
 export default createBottomTabNavigator({
   MapStack,
-  LinksStack,
+  DeckStack,
   ReviewStack
 });
