@@ -19,6 +19,7 @@ import {
 } from "native-base";
 import { MapView } from "expo";
 import { Platform, View, Dimensions } from "react-native";
+import JobConstants from "../constants/job";
 
 // SearchResult.SearchResultItems.MatchedObjectDescriptor
 // PositionID
@@ -84,6 +85,10 @@ class DeckScreen extends Component {
     return <Card title="No more jobs" />;
   };
 
+  onSwipeRight = job => {
+    this.props.likeJob(job);
+  };
+
   render() {
     initRegion = {
       latitude: 37,
@@ -91,15 +96,15 @@ class DeckScreen extends Component {
       latitudeDelta: 0.09,
       longitudeDelta: 0.04
     };
-
     return (
       <Container>
         <Content scrollEnabled={false}>
           <Swipe
-            keyName="MatchedObjectId"
+            keyName={JobConstants.JOB_KEY_NAME}
             data={this.props.jobs}
             renderCard={this.renderCard}
             renderNoMoreCards={this.renderNoMoreCards}
+            onSwipeRight={this.onSwipeRight}
           />
         </Content>
       </Container>

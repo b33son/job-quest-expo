@@ -10,6 +10,8 @@ export default class App extends React.Component {
     isLoadingComplete: false
   };
 
+  // Render spinner if not ready
+
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
