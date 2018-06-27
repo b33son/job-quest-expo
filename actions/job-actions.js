@@ -3,7 +3,7 @@
  */
 
 import axios from "axios";
-import { FETCH_JOBS, LIKE_JOB } from "./types";
+import { FETCH_JOBS, LIKE_JOB, CLEAR_LIKED_JOB } from "./types";
 import reverseGeocode from "latlng-to-zip";
 import qs from "qs";
 
@@ -52,5 +52,11 @@ export const likeJob = job => {
   return {
     type: LIKE_JOB,
     payload: job
+  };
+};
+
+export const clearLikedJobs = () => {
+  return {
+    type: CLEAR_LIKED_JOB
   };
 };

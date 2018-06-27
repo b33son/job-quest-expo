@@ -1,20 +1,27 @@
 import React from "react";
-import { View, Text } from "react-native";
-
-export default class SettingsScreen extends React.Component {
+import { View, Button, Text } from "native-base";
+import { connect } from "react-redux";
+import * as actions from "../actions";
+class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: "Settings"
   };
 
+  onPressClear = () => {
+    this.props.clearLikedJobs();
+  };
   render() {
     return (
       <View>
-        <Text>Settings</Text>
-        <Text>Settings</Text>
-        <Text>Settings</Text>
-        <Text>Settings</Text>
-        <Text>Settings</Text>
+        <Button onPress={onPressClear}>
+          <Text>Clear Liked Jobs</Text>
+        </Button>
       </View>
     );
   }
 }
+
+export default connect(
+  null,
+  actions.clearLikedJobs
+)(SettingsScreen);

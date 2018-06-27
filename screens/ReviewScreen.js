@@ -25,7 +25,7 @@ class ReviewScreen extends Component {
   renderLikedJobs = () => {
     return this.props.likedJobs.map(({ MatchedObjectDescriptor }) => {
       job = MatchedObjectDescriptor;
-      debugger;
+
       return (
         <View style={{ height: 200 }}>
           <View style={styles.detailWrapper}>
@@ -57,7 +57,7 @@ const styles = {
     justifyContent: "space-around"
   },
   italics: {
-    fontStyle: "italics"
+    fontStyle: "italic"
   }
 };
 
